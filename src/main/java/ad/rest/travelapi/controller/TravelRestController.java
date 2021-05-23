@@ -89,10 +89,31 @@ public class TravelRestController {
             switch (dir.get()) {
                 case "asc":
                     direction = Sort.Direction.ASC;
+                    break;
                 case "desc":
                     direction = Sort.Direction.DESC;
+                    break;
             }
         }
         return passengerRepository.findAll(Sort.by(direction, order_by.orElse("id")));
     }
+
+    @GetMapping("/flights-sort")
+    List<Flight> getFlightsSorted(@RequestParam Optional<String> order_by, @RequestParam Optional<String> dir){
+        Sort.Direction direction = Sort.Direction.ASC;
+        if(dir.isEmpty()){
+
+        }else{
+            switch (dir.get()){
+                case "asc":
+                    direction = Sort.Direction.ASC;
+                    break;
+                case "desc":
+                    direction = Sort.Direction.DESC;
+                    break;
+            }
+        }
+        return flightRepository.findAll(Sort.by(direction, order_by.orElse("id")));
+    }
+
 }
