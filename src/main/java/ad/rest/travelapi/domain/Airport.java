@@ -26,4 +26,47 @@ public class Airport {
     @OneToMany(mappedBy = "destination")
     @JsonIgnore
     private Set<Flight> departures = new HashSet<>();
+
+    public Airport() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<Flight> getArrivals() {
+        return arrivals;
+    }
+
+    public void setArrivals(Set<Flight> arrivals) {
+        this.arrivals = arrivals;
+    }
+
+    public Set<Flight> getDepartures() {
+        return departures;
+    }
+
+    public void setDepartures(Set<Flight> departures) {
+        this.departures = departures;
+    }
 }

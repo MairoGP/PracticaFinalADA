@@ -19,4 +19,31 @@ public class Airline {
     @OneToMany(mappedBy = "airline")
     @JsonIgnore
     private Set<Flight> flights = new HashSet<>();
+
+    public Airline() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<Flight> getFlights() {
+        return flights;
+    }
+
+    public void setFlights(Set<Flight> flights) {
+        this.flights = flights;
+    }
 }
