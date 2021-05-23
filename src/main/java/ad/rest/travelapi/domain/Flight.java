@@ -45,7 +45,7 @@ public class Flight {
     private Airport destination;
 
     @ManyToOne
-    @JoinColumn(name="airline", unique = true)
+    @JoinColumn(name="airline")
     private Airline airline;
 
     @OneToMany

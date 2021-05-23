@@ -116,4 +116,9 @@ public class TravelRestController {
         return flightRepository.findAll(Sort.by(direction, order_by.orElse("id")));
     }
 
+    @GetMapping("/airports/{airline}")
+    List<Airport> getFlightsByAirline(@PathVariable Long airline){
+        return airportRepository.findAirportsByAirline(airline);
+    }
+
 }
