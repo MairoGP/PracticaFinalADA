@@ -131,6 +131,12 @@ public class TravelRestController {
     }
 
     //EXTRAER INFORMACION DEL SISTEMA
+    @GetMapping("/flights/cheapest")
+    List<Flight> getCheapestsFlights(){
+        return flightRepository.findAll(Sort.by(Sort.Direction.ASC, "price"));
+    }
+
+
     @GetMapping("/airports/{airline}")
     List<Airport> getFlightsByAirline(@PathVariable Long airline){
         return airportRepository.findAirportsByAirline(airline);

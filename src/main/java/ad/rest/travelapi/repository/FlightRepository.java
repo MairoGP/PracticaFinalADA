@@ -16,4 +16,6 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
             "FROM flight " +
             "WHERE (ORIGIN_AIRPORT_ID = ?1 OR DESTINATION_AIRPORT_ID = ?1) AND AIRLINE = ?2", nativeQuery = true)
     List<Flight> findFlightsByAirportAirline(Long id_airport,Long airline_id);
+
+
 }
