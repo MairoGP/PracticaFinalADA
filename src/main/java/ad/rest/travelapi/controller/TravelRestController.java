@@ -1,9 +1,6 @@
 package ad.rest.travelapi.controller;
 
-import ad.rest.travelapi.domain.Airline;
-import ad.rest.travelapi.domain.Airport;
-import ad.rest.travelapi.domain.Flight;
-import ad.rest.travelapi.domain.Passenger;
+import ad.rest.travelapi.domain.*;
 import ad.rest.travelapi.exception.PassengerNotFoundException;
 import ad.rest.travelapi.repository.*;
 import org.apache.juli.logging.Log;
@@ -12,10 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -39,7 +33,7 @@ public class TravelRestController {
     }
 
 
-    //Listar datos
+    //LISTAR DATOS
     @GetMapping("/flights")
     List<Flight> getAllFlights(){
         return (List<Flight>)flightRepository.findAll();
@@ -60,6 +54,7 @@ public class TravelRestController {
         return (List<Passenger>) passengerRepository.findAll();
     }
 
+    //Obtener Passagero por id
     @GetMapping("/passengers/{id}")
     Optional<Passenger> one (@PathVariable Long id){
         return passengerRepository.findById(id);
@@ -116,9 +111,43 @@ public class TravelRestController {
         return flightRepository.findAll(Sort.by(direction, order_by.orElse("id")));
     }
 
+    //AÑANIR INFORMACION
+    @PostMapping("/airports")
+    Airport newAirport(@RequestBody Airport newAirport){
+        log.info("new Airport");
+        return airportRepository.save(newAirport);
+    }
+
+    @PostMapping("/airlines")
+    Airline newAiline(@RequestBody Airline newAirline){
+        log.info("new Airline");
+        return airlineRepository.save(newAirline);
+    }
+
+    @PostMapping("/passenger-list")
+    List<Passenger> newPassengerList(@RequestBody List<Passenger> newPassengerList){
+        log.info("new Passenger List");
+        return passengerRepository.saveAll(newPassengerList);
+    }
+
+    //EXTRAER INFORMACION DEL SISTEMA
     @GetMapping("/airports/{airline}")
     List<Airport> getFlightsByAirline(@PathVariable Long airline){
         return airportRepository.findAirportsByAirline(airline);
     }
 
+    @GetMapping("/airports/location/{keyword}")
+    List<Airport> getAirportsByKeyword(@PathVariable String keyword ){
+        return airportRepository.findByNameContaining(keyword);
+    }
+
+    @RequestMapping(value = "/flights/{airport}/{airline}", method = RequestMethod.GET)
+    List<Flight> getFlightByAirportAndAirline(@PathVariable Long airport, @PathVariable Long airline){
+        return flightRepository.findFlightsByAirportAirline(airport, airline);
+    }
+
+    @GetMapping("flights/occupation/{flightNumber}")
+    Integer getSeatsInFlight(@PathVariable Long flightNumber){
+        return seatRepository.findSeatsInFlight(flightNumber);
+    }
 }

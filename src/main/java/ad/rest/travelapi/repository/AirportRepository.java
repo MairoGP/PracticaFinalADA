@@ -20,4 +20,6 @@ public interface AirportRepository extends JpaRepository<Airport, Long> {
             "    ON f.airline = ?1"
             , nativeQuery = true)
     List<Airport> findAirportsByAirline(Long id);
+
+    List<Airport> findByNameContaining(String keyword);
 }

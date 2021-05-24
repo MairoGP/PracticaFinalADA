@@ -1698,3 +1698,36 @@ update Flight set AIRLINE = 7 WHERE ID = 47;
 update Flight set AIRLINE = 8 WHERE ID = 48;
 update Flight set AIRLINE = 9 WHERE ID = 49;
 update Flight set AIRLINE = 10 WHERE ID = 50;
+
+
+
+update Passenger set SEAT_ID = 1, FLIGHT_ID = 2 WHERE ID = 1;
+update Passenger set SEAT_ID = 2, FLIGHT_ID = 2 WHERE ID = 12;
+update Passenger set SEAT_ID = 3, FLIGHT_ID = 6 WHERE ID = 23;
+update Passenger set SEAT_ID = 4, FLIGHT_ID = 1WHERE ID = 34;
+update Passenger set SEAT_ID = 5, FLIGHT_ID = 3 WHERE ID = 54;
+update Passenger set SEAT_ID = 6, FLIGHT_ID = 5 WHERE ID = 16;
+update Passenger set SEAT_ID = 7, FLIGHT_ID = 11 WHERE ID = 37;
+update Passenger set SEAT_ID = 8, FLIGHT_ID = 15 WHERE ID = 28;
+update Passenger set SEAT_ID = 9, FLIGHT_ID = 12 WHERE ID = 19;
+update Passenger set SEAT_ID = 10, FLIGHT_ID = 10 WHERE ID = 10;
+update Passenger set SEAT_ID = 11, FLIGHT_ID = 7 WHERE ID = 11;
+update Passenger set SEAT_ID = 12, FLIGHT_ID = 13 WHERE ID = 40;
+update Passenger set SEAT_ID = 13, FLIGHT_ID = 17 WHERE ID = 73;
+update Passenger set SEAT_ID = 14, FLIGHT_ID = 16 WHERE ID = 94;
+update Passenger set SEAT_ID = 15, FLIGHT_ID = 21 WHERE ID = 85;
+update Passenger set SEAT_ID = 16, FLIGHT_ID = 20 WHERE ID = 76;
+update Passenger set SEAT_ID = 17, FLIGHT_ID = 18 WHERE ID =67;
+update Passenger set SEAT_ID = 18, FLIGHT_ID = 19 WHERE ID = 128;
+update Passenger set SEAT_ID = 19, FLIGHT_ID = 26 WHERE ID = 139;
+update Passenger set SEAT_ID = 20, FLIGHT_ID = 25 WHERE ID = 220;
+update Passenger set SEAT_ID = 21, FLIGHT_ID = 23 WHERE ID = 134;
+update Passenger set SEAT_ID = 22, FLIGHT_ID = 35 WHERE ID = 364;
+update Passenger set SEAT_ID = 23, FLIGHT_ID = 31 WHERE ID = 347;
+update Passenger set SEAT_ID = 24, FLIGHT_ID = 213 WHERE ID = 412;
+update Passenger set SEAT_ID = 25, FLIGHT_ID = 71 WHERE ID = 359;
+update Passenger set SEAT_ID = 26, FLIGHT_ID = 34 WHERE ID = 462;
+update Passenger set SEAT_ID = 27, FLIGHT_ID = 29 WHERE ID = 374;
+update Passenger set SEAT_ID = 28, FLIGHT_ID = 50 WHERE ID = 289;
+update Passenger set SEAT_ID = 29, FLIGHT_ID = 46 WHERE ID = 194;
+update Passenger set SEAT_ID = 30, FLIGHT_ID = 39 WHERE ID = 430;
